@@ -7,10 +7,9 @@ class User(AbstractUser):
     is_teacher = models.BooleanField('teacher status', default=False)
     is_active = models.BooleanField('active status', default=True)
 
-class Student(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    qr_code = models.OneToOneField()
-    points = models.IntegerField()
+    user_id = models.CharField(max_length=100, null=True)
+    points = models.IntegerField(default=0)
+# class Student(models.Model):
     
     # '''
     # This is a custom version of the built in User class
