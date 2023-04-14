@@ -32,7 +32,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         # list as seen below
         fields = ('username', 'password', 'email',
                   'first_name', 'last_name', 'is_student', 'is_teacher', 'is_active',
-                  'user_id', 'points')
+                  'qr_id', 'points')
 
     def create(self, validated_data):
 
@@ -44,7 +44,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
             is_student=validated_data['is_student'],
             is_teacher=validated_data['is_teacher'],
             is_active=validated_data['is_active'],
-            user_id=validated_data['user_id'],
+            qr_id=validated_data['qr_id'],
             points=validated_data['points'],
 
             # If added new columns through the User model, add them in this

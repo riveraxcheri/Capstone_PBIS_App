@@ -7,7 +7,7 @@ class User(AbstractUser):
     is_teacher = models.BooleanField('teacher status', default=False)
     is_active = models.BooleanField('active status', default=True)
 
-    user_id = models.CharField(max_length=100, null=True)
+    qr_id = models.CharField(max_length=100, null=True)
     points = models.IntegerField(default=0)
 # class Student(models.Model):
     
