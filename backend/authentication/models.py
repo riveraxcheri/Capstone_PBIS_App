@@ -6,10 +6,10 @@ class User(AbstractUser):
     is_student = models.BooleanField('student status', default=False)
     is_teacher = models.BooleanField('teacher status', default=False)
     is_active = models.BooleanField('active status', default=True)
-
-    qr_id = models.CharField(max_length=100, null=True)
-    points = models.IntegerField(default=0)
-# class Student(models.Model):
+#is_admin for registration page
+class Student(models.Model):
+    qr_id = models.OneToOneField(User, related_name='student_id', on_delete=models.CASCADE, primary_key=True)
+    points_balance = models.OneToOneField(User, related_name='points', on_delete=models.CASCADE)
     
     # '''
     # This is a custom version of the built in User class
