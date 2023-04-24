@@ -1,4 +1,4 @@
-import Products from "../Products/Products";
+// import Products from "../Products/Products";
 const Store = ({products}) => {
     return ( 
     <div>
@@ -8,5 +8,5 @@ const Store = ({products}) => {
     
  );
 }
-{/* <p>{products.map((product) => (<Products product={product} key={product.id}/>))}</p> */}
+
 export default Store;

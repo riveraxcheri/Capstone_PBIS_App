@@ -2,28 +2,30 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import Products from "../../components/Products/Products";
 
 const TeacherPage = () => {
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchCars = async () => {
+    const fetchProducts = async () => {
       try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
+        let response = await axios.get("http://127.0.0.1:8000/api/store/", {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
-        setCars(response.data);
+        setProducts(response.data);
       } catch (error) {
         console.log(error.response.data);
       }
     };
-    fetchCars();
+    fetchProducts();
   }, [token]);
   return (
     <div className="container">
       <h1>Teacher Page for {user.username}!</h1>
+      <p>{products.map((product) => (<Products product={product} key={product.id}/>))}</p>
     </div>
   );
 };
